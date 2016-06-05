@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Audio Analysis</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Audio Analysis">
+  <meta name="author" content="Stephen Tobin">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Audio Analysis</h1>
+    <h2>Shiny App Pitch</h2>
+    <p>Stephen Tobin<br/>-made with slidify-</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Audio Analysis App: <strong>Aaapp</strong></h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Linguistics students participating in acoustic signal processing courses need tools to grasp the importance of specificying particular parameters when analyzing acoustic signals. However, many of the software packages that allow them to manipulate audio files directly are very expensive. Even when licenses have been purchased, it is not always easy to ensure all students have access when and where they need it.</p>
+
+<ul>
+<li>Link to the <a href="https://phonetiker.shinyapps.io/CourseraDST9_audio/">live Aaapp</a> on Shiny Apps<br></li>
+<li>Link to the <a href="https://github.com/Phonetiker/AudioAnalysis">code and data</a> on GitHub</li>
+</ul>
+
+<p>Aaapp is an Audio Analysis App provides a solution to this dilemma. It provides students with a means to engage directly with analysis parameters of audio signals through an easy-to-use interface based entirely on freeware.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What does it do?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Aaap</strong> allows users to choose from one of a variety of audio files and to analyze it selecting a shorter or longer analysis window. Users can select female or male voices saying short phrases or animals producing their calls. </p>
+
+<p>The sound is presented in two formats:</p>
+
+<ol>
+<li>Waveform: pressure fluctuations of the sound </li>
+<li>Spectrogram: sound energy displayed across frequency (pitch) bands</li>
+</ol>
+
+<p>By choosing different sounds and different analysis window lengths, students can see how the window length effects the kind of information made available by the analysis. A brief explanation is provided as part of the app, for quick reference.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id">
+  <hgroup>
+    <h2>Example</h2>
+  </hgroup>
+  <article>
+    <pre><code>## Loading required package: seewave
+</code></pre>
+  
+    <div class='left' style='float:left;width:48%'>
+     <p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"></p>
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <ul>
+<li>Example audio file: part of the <code>seewave</code> package</li>
+<li>Bottom panel shows waveform</li>
+<li>Top panel shows spectrogram</li>
+<li>Default window lenth used here<br>
+
+<ul>
+<li>(512 samples)</li>
+</ul></li>
+<li>Good window length for this sound file</li>
+<li>Temporal and frequency structure visible</li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+<slide class="class" id="id">
+  <hgroup>
+    <h2>Benefits and technical details</h2>
+  </hgroup>
+  <article>
+      
+    <div class='left' style='float:left;width:48%'>
+     <h3>Benefits</h3>  
+
+<ul>
+<li>Hosted on ShinyApps server: accessible to anyone with internet connection<br></li>
+<li>Created using freeware <code>R</code>: <code>Shiny</code> and <code>seewave</code> packages (no proprietary software required) </li>
+<li>Functional on smartphones: easy for students to access anywhere, anytime </li>
+<li>Source code provided on Github</li>
+</ul>
+
+    </div>    
+    <div class='right' style='float:right;width:48%'>
+     <h3>Technical Details</h3>
+
+<ul>
+<li>Standard <code>Shiny</code> functions such as <code>fluidPage</code>, <code>reactive</code> and <code>renderPlot</code> were used to structure the app<br></li>
+<li>Small selection (9) of short audio files (&lt;= 205 kB each) from <a href="http://www.wavsource.com/">wavsource</a> downloaded as a zip file (&lt; 400 kB) from <a href="https://www.dropbox.com">dropbox</a></li>
+<li>User selects audio files and analysis window lengths with radio button</li>
+<li>The spectogram updates automatically following each user selection </li>
+</ul>
+
+    </div>
+  </article>
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Audio Analysis App: <strong>Aaapp</strong>'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='What does it do?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Benefits and technical details'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
